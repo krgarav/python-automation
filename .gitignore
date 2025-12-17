@@ -1,0 +1,31 @@
+.env
+
+audiotext.py
+
+__pycache__/
+.qodoc/
+.vscode/
+
+
+
+venv
+
+
+images/
+
+data/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+email_sent_log.txt
+
+# Generated PPTX files
+files/
+templates/*1.pptx
+templates/Elevation*.pptx
+templates/imageslide1.pptx
+templates/residential_template1.pptx
