@@ -843,10 +843,14 @@ def send_final_email(item_id, form_data, email):
     """Send final email with PPT download links."""
     
     # Use hardcoded email from .env instead of form email
-    recipient_email = os.getenv("SEND_TO_EMAIL")
-    if not recipient_email:
+    raw_recipients = os.getenv("SEND_TO_EMAIL")
+
+    if raw_recipients:
+         recipient_email = raw_recipients.split(",")
+    else:
         print("⚠️ SEND_TO_EMAIL not set in .env file, using form email as fallback")
-        recipient_email = email
+        recipient_email = [email]
+    
     
     output_url = f"{BASE_URL}/download-ppt?item_id={item_id}&ppt_type=output"
     brochure_url = f"{BASE_URL}/download-ppt?item_id={item_id}&ppt_type=brochure"
